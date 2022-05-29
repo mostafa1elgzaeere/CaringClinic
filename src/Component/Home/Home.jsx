@@ -9,7 +9,7 @@ function Home(props) {
 
     return (
         <div>
-            <div className="page-hero bg-image overlay-dark " style={{ "backgroundImage":`url(${background})` }}>
+            <div className="page-hero bg-image overlay-dark " style={{ "backgroundImage":`url(https://s3.mortarr.com/images/project_gallery_images/hospital-reception-and-check-in-area.jpeg)` }}>
                 <div className="hero-section container">
                     <div className="container text-center  ">
                         <span className="subhead">Caring for the whole patient, not just your symptoms</span>
@@ -63,7 +63,7 @@ function Home(props) {
                             </div>
                             <div className="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
                                 <div className="img-place custom-img-1">
-                                    <img src={logo} alt />
+                                    <img src="https://giz-cambodia.com/assets/img/bg-doctor.png" alt />
                                 </div>
                             </div>
                         </div>
