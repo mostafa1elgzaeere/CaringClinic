@@ -3,12 +3,20 @@ import ReactPaginate from 'react-paginate';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 function Blog(props) {
+    let [loading,setLoading]=useState(true)
+
 
     let [Data, setData] = useState([
 
     ])
+
+    const fetch = async () => {
+       await axios.get(`https://caringapi.herokuapp.com/api/blogs/`).then((res) => setData(res.data))
+       setLoading(false)
+
+    }
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/blogs/").then((res) => setData(res.data))
+        fetch()
     },[])
 
 
@@ -77,8 +85,10 @@ function Blog(props) {
                             </div>
                         </div>
 
-
-
+                        {loading?<div className='d-flex justify-content-center'>
+    <div className="spinner-grow text-dark text-secondary"style={{"color":"gray"}}  role="status">
+  </div>
+</div>:
 
                         <div className='col-md-6 col-sm-12' style={{ "display": "flex", "flexWrap": "wrap", "justifyContent": "center" , "minHeight":"490px"}}>
                             {Data.slice(pagesVisited, pagesVisited + DataPerPage).filter((item) => {
@@ -114,7 +124,7 @@ function Blog(props) {
 
                         </div>
 
-
+                        }
 
                     </div> {/* .row */}
                 </div> {/* .container */}
